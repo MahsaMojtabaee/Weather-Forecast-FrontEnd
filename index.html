@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/612041ac25.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+        <div class="card mainContainer" style="width: 50rem;">
+            <div class="card-body">
+                    <div class="card borderles" style="width: 40rem">
+        <div class="card-body">
+          <h2 class="card-title">Weather Forecast</h2>
+<form id="search-box-form">
+          <div class="input-group search-box mb-3"
+          id="search-box">
+            <input
+              type="text"
+              id="search-box-input"
+              class="form-control search"
+              placeholder="Search the city"
+              autocomplete="off"
+              autofocus
+              aria-label="search"
+              aria-describedby="basic-addon2"
+            />
+            <span class="input-group-text search-icon" id="icon"
+              ><button type="submit" class="submit-button" id="submit-button"><i class="fa-solid fa-magnifying-glass"></i
+            ></button></span>
+          </div>
+        </form>
+          <p class="card-text">
+           <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5 tempreture"><i class="fa-solid fa-smog"></i> <span id="currentTemp">4</span><span id="currentDegree">℃</span> / <span id="ToDegree">℉</span></div>
+            <div class="col-6">
+                <div class="location" id="location">
+                    Mashhad, Razavi Khorasan Province
+                </div> 
+                <div class="date" id="current-day"></div>
+                <div class="weather">Haze</div>
+            </div>
+           </div>
+           <div class="row temp-grid">
+            <div class="col-1"></div>
+
+
+            <div class="col-2 day start">
+                <div class="fri">Fri</div>
+                <div class="tempIcon">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="temp">3℃</div>
+            </div>
+            <div class="col-2 day">
+                <div class="sat">Sat</div>
+                <div class="tempIcon">
+                    <i class="fa-solid fa-smog"></i>
+                </div>
+                <div class="temp">4℃</div>
+            </div>
+            <div class="col-2 day">
+                <div class="sun">Sun</div>
+                <div class="tempIcon">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="temp">5℃</div>
+            </div>
+            <div class="col-2 day">
+                <div class="mon">Mon</div>
+                <div class="tempIcon">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="temp">4℃</div>
+            </div>
+            <div class="col-2 day last">
+                <div class="tue">Tue</div>
+                <div class="tempIcon">
+                    <i class="fa-solid fa-snowflake"></i>
+                </div>
+                <div class="temp">1℃</div>
+            </div>
+           </div>
+          </p>
+        </div>
+      </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="styles/index.js"></script>
+  </body>
+</html>
+
+
+
+ 

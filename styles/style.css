@@ -1,0 +1,88 @@
+body {
+  background: #757a79;
+}
+.mainContainer {
+  background: #bbe9db;
+  margin-top: 50px;
+  /* box-shadow: 0px 0px 12px 1px rgba(126, 116, 116, 0.2); */
+  box-shadow: 0px 0px 12px 1px rgba(155, 166, 165, 0.3);
+}
+i {
+  color: #3f4245c0;
+}
+.card-title {
+  font-size: 35px;
+  color: #3f4245c0;
+  margin-bottom: 20px;
+}
+.search-box {
+  width: 100%;
+  left: 0;
+}
+.search-icon {
+  background-color: #fff;
+  border-left: #fff;
+}
+
+.search {
+  border-right: #fff;
+  color: #3f4245c0;
+}
+
+.submit-button{
+  border: #fff;
+  background-color: #fff;
+}
+
+.day {
+  border: 0.01mm solid #70757a59;
+  border-right: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.last {
+  border: 0.01mm solid #70757a59;
+  border-top-right-radius: 1mm;
+  border-bottom-right-radius: 1mm;
+}
+.start {
+  border-top-left-radius: 1mm;
+  border-bottom-left-radius: 1mm;
+}
+
+.borderles {
+  border: #fff;
+  background: #bbe9db;
+}
+
+.temp-grid {
+  margin-top: 40px;
+}
+
+.tempreture {
+  color: #3f4245c0;
+  font-size: 30px;
+}
+#ToDegree{
+  cursor: pointer;
+}
+#ToDegree:hover{
+  color: #9ba6a5;
+}
+
+.location {
+  color: #3f4245c0;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.date,
+.weather {
+  color: #3f4245c0;
+  font-size: smaller;
+}
+
+.tempIcon {
+  color: #3f4245c0;
+  font-size: 30px;
+}
