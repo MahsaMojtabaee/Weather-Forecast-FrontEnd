@@ -37,9 +37,14 @@ function message(cityName) {
     }
   }
 }
-let city1 = prompt("Enter a city?");
-message(city1);
+// let city1 = prompt("Enter a city?");
+// message(city1);
 
+
+
+
+
+// set the time based on the current date of the programer's current location
 let now = new Date();
 let days = [
   "Sunday",
@@ -57,19 +62,33 @@ let hour = now.getHours();
 let minutes = now.getMinutes();
 let fullMinutes = minutes > 9 ? `${minutes}` : `0${minutes}`;
 let fullHours = hour > 9 ? `${hour}` : `0${hour}`;
-
 HTMLday.innerHTML = `${day} ${fullHours}:${fullMinutes}`;
 
+
+
+// change the city and time based on the user search-box input
 function changeCity(event) {
   event.preventDefault();
   let cityName = document.querySelector("#search-box-input");
-//   console.log(cityName.value);
-  let HTMLcity = document.querySelector("#location");
-  HTMLcity.innerHTML = cityName.value;
+  let apiKey = "aca4dd3643b89e94dbd3cac6cf6f2638";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=${apiKey}`;
+
+  // prevent changing the html doc if the city name is invalid
+  // and notify the user to change the city
+  axios.get(weatherUrl)
+  .then(displayCityandTemp)
+  .catch(
+    function(error){
+      alert("Could not find the city.\nPlease enter another name😊")
+    }
+  );
+  
+
 }
 let city = document.querySelector("#search-box-form");
 city.addEventListener("submit", changeCity);
 
+// A function to change the temp unit based on the current one
 function convertDegree(){
     let currentTemp = document.querySelector("#currentTemp");
     let currentDegree = document.querySelector("#currentDegree");
@@ -88,4 +107,37 @@ function convertDegree(){
 }
 let FCconvert = document.querySelector("#ToDegree");
 FCconvert.addEventListener("click", convertDegree);
+
+
+
+// display the city and current tempreture in html doc
+function displayCityandTemp(response) {
+
+  //change the city in html document
+  let HTMLcity = document.querySelector("#location");
+  HTMLcity.innerHTML = response.data.name;
+
+  //change the current temp regarding the city
+  let currentTemp = response.data.main.temp;
+  let pageTemp = document.querySelector("#currentTemp");
+  pageTemp.innerHTML = Math.round(currentTemp);
+
+  //fix the temp unit to celsius
+  let currentDegree = document.querySelector("#currentDegree");
+  let toDegree = document.querySelector("#ToDegree");
+  currentDegree.innerHTML = "℃";
+  toDegree.innerHTML = "℉";
+
+
+  //change the weather description regarding the city
+  let weatherDescription = document.querySelector("#weather-description");
+  weatherDescription.innerHTML = response.data.weather[0].description;
+  // console.log(response.data.weather[0].description);
+  
+
+}
+
+
+
+
 
