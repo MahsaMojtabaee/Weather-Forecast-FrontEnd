@@ -10,6 +10,24 @@ body {
 i {
   color: #3f4245c0;
 }
+
+
+.current-btn{
+  background-color: #fff;
+}
+
+
+
+
+.currentCity{
+  background-color:#fff;
+}
+#current-city{
+  border:#9ba6a5;
+  color:#5E6B6A;
+  font-weight: bold;
+  font-size: larger;;
+}
 .card-title {
   font-size: 35px;
   color: #3f4245c0;
@@ -72,7 +90,7 @@ i {
 
 .location {
   color: #3f4245c0;
-  font-size: 22px;
+  font-size: 25px;
   margin-bottom: 16px;
 }
 

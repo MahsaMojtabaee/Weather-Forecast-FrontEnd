@@ -76,17 +76,37 @@ function changeCity(event) {
   // prevent changing the html doc if the city name is invalid
   // and notify the user to change the city
   axios.get(weatherUrl)
-  .then(displayCityandTemp)
+  .then(displayCityAndTemp)
   .catch(
     function(error){
       alert("Could not find the city.\nPlease enter another name😊")
     }
   );
   
-
 }
+
+
+
+function setCurrentCity(position){
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  // console.log(position.coords.latitude);
+  // console.log(position.coords.longitude);
+  let apiKey = "aca4dd3643b89e94dbd3cac6cf6f2638";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(weatherUrl).then(displayCityAndTemp);
+}
+
+function changeToCurrent(event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(setCurrentCity);
+}
+
 let city = document.querySelector("#search-box-form");
 city.addEventListener("submit", changeCity);
+
+let currentCity = document.querySelector(".currentCity");
+currentCity.addEventListener("click", changeToCurrent);
 
 // A function to change the temp unit based on the current one
 function convertDegree(){
@@ -111,7 +131,7 @@ FCconvert.addEventListener("click", convertDegree);
 
 
 // display the city and current tempreture in html doc
-function displayCityandTemp(response) {
+function displayCityAndTemp(response) {
 
   //change the city in html document
   let HTMLcity = document.querySelector("#location");
@@ -136,6 +156,7 @@ function displayCityandTemp(response) {
   
 
 }
+
 
 
 

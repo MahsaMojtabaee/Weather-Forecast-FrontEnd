@@ -24,7 +24,9 @@
             <div class="card-body">
                     <div class="card borderles" style="width: 40rem">
         <div class="card-body">
-          <h2 class="card-title">Weather Forecast</h2>
+          <h2 class="card-title">Weather Forecast
+          </h2>
+
 <form id="search-box-form">
           <div class="input-group search-box mb-3"
           id="search-box">
@@ -41,15 +43,18 @@
             <span class="input-group-text search-icon" id="icon"
               ><button type="submit" class="submit-button" id="submit-button"><i class="fa-solid fa-magnifying-glass"></i
             ></button></span>
+            <span class="input-group-text current-btn"><button type="reset" class="currentCity" id="current-city">current</button></span>
+      
           </div>
         </form>
+        
           <p class="card-text">
            <div class="row">
             <div class="col-1"></div>
             <div class="col-5 tempreture"><i class="fa-solid fa-smog"></i> <span id="currentTemp">4</span><span id="currentDegree">℃</span> / <span id="ToDegree">℉</span></div>
             <div class="col-6">
                 <div class="location" id="location">
-                    Mashhad, Razavi Khorasan Province
+                    Mashhad
                 </div> 
                 <div class="date" id="current-day"></div>
                 <div class="weather" id="weather-description">Haze</div>
