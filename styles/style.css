@@ -104,3 +104,10 @@ i {
   color: #3f4245c0;
   font-size: 30px;
 }
+
+.githubLink{
+  margin-top: 50px;
+  display: block;
+  text-align: center;
+
+}
