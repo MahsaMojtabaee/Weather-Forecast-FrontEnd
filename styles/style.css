@@ -94,14 +94,18 @@ i {
   margin-bottom: 16px;
 }
 
+/* #wind, #hum
 .date,
-.weather {
+.weather  */
+
+.des{
   color: #3f4245c0;
   font-size: smaller;
 }
 
+
 .tempIcon {
-  color: #3f4245c0;
+  color: #5D6C6A;
   font-size: 30px;
 }
 
@@ -110,5 +114,30 @@ i {
   display: block;
   text-align: center;
   color: #bbe9db;
+}
 
+
+.temp{
+  font-weight: bold;
+  color: #505b5a;
+  margin-top: 10px;
+}
+
+.temp-main-icon{
+  color: #505b5ad8;
+  margin-right: 5px;
+}
+.fri, .sun, .sat, .mon, .tue{
+  color: #505b5a;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-text{
+  margin-top: 30px;
+}
+
+
+ul{
+  list-style: none;
 }

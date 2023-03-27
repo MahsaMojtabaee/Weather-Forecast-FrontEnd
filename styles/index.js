@@ -66,6 +66,9 @@ HTMLday.innerHTML = `${day} ${fullHours}:${fullMinutes}`;
 
 
 
+
+
+
 // change the city and time based on the user search-box input
 function changeCity(event) {
   event.preventDefault();
@@ -134,8 +137,11 @@ FCconvert.addEventListener("click", convertDegree);
 function displayCityAndTemp(response) {
 
   //change the city in html document
-  let HTMLcity = document.querySelector("#location");
+  let HTMLcity = document.querySelector("#city");
   HTMLcity.innerHTML = response.data.name;
+
+  let HTMLcountry = document.querySelector("#country");
+  HTMLcountry.innerHTML = response.data.sys.country;
 
   //change the current temp regarding the city
   let currentTemp = response.data.main.temp;
@@ -153,7 +159,20 @@ function displayCityAndTemp(response) {
   let weatherDescription = document.querySelector("#weather-description");
   weatherDescription.innerHTML = response.data.weather[0].description;
   // console.log(response.data.weather[0].description);
-  
+
+  //set wind speed based on the city
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = response.data.wind.speed;
+
+  //set humidity based on the city
+  let hum = document.querySelector("#hum");
+  hum.innerHTML = response.data.main.humidity;
+
+  //set weather icon
+  let icon = document.querySelector("#weatherIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  //set weather icon alternative  
+  icon.setAttribute("alt", weatherDescription.innerHTML);
 
 }
 
