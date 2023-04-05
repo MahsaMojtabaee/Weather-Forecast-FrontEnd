@@ -65,6 +65,24 @@ let fullHours = hour > 9 ? `${hour}` : `0${hour}`;
 HTMLday.innerHTML = `${day} ${fullHours}:${fullMinutes}`;
 
 
+let one = days[(now.getDay()+1)%7].substring(0,3);
+let HTML1 = document.querySelector("#one");
+HTML1.innerHTML = one;
+let two = days[(now.getDay()+2)%7].substring(0,3);
+let HTML2 = document.querySelector("#two");
+HTML2.innerHTML = two;
+let three = days[(now.getDay()+3)%7].substring(0,3);
+let HTML3 = document.querySelector("#three");
+HTML3.innerHTML = three;
+let four = days[(now.getDay()+4)%7].substring(0,3);
+let HTML4 = document.querySelector("#four");
+HTML4.innerHTML = four;
+let five = days[(now.getDay()+5)%7].substring(0,3);
+let HTML5 = document.querySelector("#five");
+HTML5.innerHTML = five;
+
+
+
 
 
 
@@ -90,14 +108,18 @@ function changeCity(event) {
 
 
 
+
 function setCurrentCity(position){
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   // console.log(position.coords.latitude);
-  // console.log(position.coords.longitude);
+  // console.log(position.coords.longitude);  
   let apiKey = "aca4dd3643b89e94dbd3cac6cf6f2638";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  
+  
   axios.get(weatherUrl).then(displayCityAndTemp);
+
 }
 
 function changeToCurrent(event){
@@ -174,8 +196,51 @@ function displayCityAndTemp(response) {
   //set weather icon alternative  
   icon.setAttribute("alt", weatherDescription.innerHTML);
 
+  // find the lan and lat of the city and find the data about 8 following days forecast
+  let lon = response.data.coord.lon;
+  let lat = response.data.coord.lat;
+  let apiKey = "aca4dd3643b89e94dbd3cac6cf6f2638";
+  let FollowingDaysForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+  axios.get(FollowingDaysForecastUrl).then(displayFollowingDaysForecast);
+
+
+
 }
 
+
+function displayFollowingDaysForecast(response){
+
+  //console.log(response.data);
+  let oneTemp = document.querySelector("#one_temp");
+  oneTemp.innerHTML = Math.round(response.data.daily[1].temp.day) + "℃";
+  
+  let twoTemp = document.querySelector("#two_temp");
+  twoTemp.innerHTML = Math.round(response.data.daily[2].temp.day) + "℃";
+
+  let threeTemp = document.querySelector("#three_temp");
+  threeTemp.innerHTML = Math.round(response.data.daily[3].temp.day) + "℃";
+
+  let fourTemp = document.querySelector("#four_temp");
+  fourTemp.innerHTML = Math.round(response.data.daily[4].temp.day) + "℃";
+
+  let fiveTemp = document.querySelector("#five_temp");
+  fiveTemp.innerHTML = Math.round(response.data.daily[5].temp.day) + "℃";
+
+
+  let icon = document.querySelector("#oneIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`);
+  icon = document.querySelector("#twoIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`);
+  icon = document.querySelector("#threeIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`);
+  icon = document.querySelector("#fourIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`);
+  icon = document.querySelector("#fiveIcon");
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`);
+
+  //console.log(response.data);
+
+}
 
 
 
