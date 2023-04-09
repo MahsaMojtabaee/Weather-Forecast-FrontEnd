@@ -84,15 +84,20 @@ HTML5.innerHTML = five;
 
 
 
-
+searchCity("Tehran");
 
 
 // change the city and time based on the user search-box input
 function changeCity(event) {
   event.preventDefault();
-  let cityName = document.querySelector("#search-box-input");
+  let cityName = document.querySelector("#search-box-input").value;
+  searchCity(cityName);
+  
+}
+
+function searchCity(cityName){
   let apiKey = "aca4dd3643b89e94dbd3cac6cf6f2638";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=${apiKey}`;
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
   // prevent changing the html doc if the city name is invalid
   // and notify the user to change the city
@@ -103,7 +108,6 @@ function changeCity(event) {
       alert("Could not find the city.\nPlease enter another name😊")
     }
   );
-  
 }
 
 
@@ -163,7 +167,7 @@ function displayCityAndTemp(response) {
   HTMLcity.innerHTML = response.data.name;
 
   let HTMLcountry = document.querySelector("#country");
-  HTMLcountry.innerHTML = response.data.sys.country;
+  HTMLcountry.innerHTML = response.data.sys.country+",";
 
   //change the current temp regarding the city
   let currentTemp = response.data.main.temp;
